@@ -1,0 +1,43 @@
+#!/usr/local/cs/bin/python3
+import sys, argparse, subprocess, string
+
+def diff(tag1, tag2):
+    try:
+        tag = tag1
+        
+        subprocess.run(f'git tag | grep {tag}', check=True, shell=True,
+                          stderr=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
+
+        tag = tag2
+
+        subprocess.run(f'git tag | grep {tag}', check=True, shell=True,
+                          stderr=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
+        
+    except subprocess.CalledProcessError:
+        sys.stdout.write(f'error: invalid tag {tag}\n')
+        sys.exit()
+
+    command = f'git diff {tag1} {tag2} | grep .'
+    
+    process = subprocess.run(command, check=True, shell=True, stdout=subprocess.PIPE, text=True)
+    return process.stdout
+
+
+parser = argparse.ArgumentParser(
+    prog='justone', description='Display the difference from the previous and current commit.')
+
+parser.add_argument('tag1', type=str)
+
+parser.add_argument('tag2', type=str)
+
+args, extras = parser.parse_known_args()
+
+if extras:
+    parser.error(f'extra operand \'{extras[0]}\'')
+
+res = diff(args.tag1, args.tag2)
+
+for l in res.splitlines():
+    sys.stdout.write(l + '\n')
+
+

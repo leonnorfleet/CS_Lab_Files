@@ -1,0 +1,35 @@
+*   c03bee6e9f5c05259f5f501e1f47cd8adb63af38 - Junio C Hamano <gitster@pobox.com> 2022-10-02 08:24:32 -0700 - Junio C Hamano <gitster@pobox.com> 2022-10-02 08:24:32 -0700 Merge tag 'l10n-2.38.0-rnd3' of https://github.com/git-l10n/git-po
+|\  
+| * dedb2883ce5670401ccd2a18e47d6dae2bc798ab - Yi-Jyun Pan <pan93412@gmail.com> 2022-10-01 19:04:42 +0800 - Yi-Jyun Pan <pan93412@gmail.com> 2022-10-01 19:10:41 +0800 l10n: zh_TW.po: Git 2.38.0, round 3
+| *   d7f69b76ec1d3936e6c32af62f11afa15cfa824f - Jiang Xin <worldhello.net@gmail.com> 2022-10-01 10:02:03 +0800 - Jiang Xin <worldhello.net@gmail.com> 2022-10-01 10:02:03 +0800 Merge branch 'po-id' of github.com:bagasme/git-po
+| |\  
+| | * 55b1c1ab1c01e45c77012b25ef1ab8c2160fa8b8 - Bagas Sanjaya <bagasdotme@gmail.com> 2022-09-25 14:53:53 +0700 - Bagas Sanjaya <bagasdotme@gmail.com> 2022-09-28 15:06:14 +0700 l10n: po-id for 2.38 (round 3)
+| * |   21cefac9678698f6188acbd472045fecc27e5c15 - Jiang Xin <worldhello.net@gmail.com> 2022-09-29 18:54:12 +0800 - Jiang Xin <worldhello.net@gmail.com> 2022-09-29 18:54:12 +0800 Merge branch 'l10n-de-2.38-rnd3' of github.com:ralfth/git
+| |\ \  
+| | * | 92e51feec560d5bf65ee38ab2752061f703bd2be - Ralf Thielow <ralf.thielow@gmail.com> 2022-09-28 17:15:53 +0200 - Ralf Thielow <ralf.thielow@gmail.com> 2022-09-28 17:15:53 +0200 l10n: de.po: update German translation
+| * | |   48bf511320713d6c09982845a8f7459f2f73d52e - Jiang Xin <worldhello.net@gmail.com> 2022-09-29 08:00:30 +0800 - Jiang Xin <worldhello.net@gmail.com> 2022-09-29 08:00:30 +0800 Merge branch 'fr_2.38_rnd3' of github.com:jnavila/git
+| |\ \ \  
+| | * | | 48fe8e6a63a87f881ae2868792cad2e3dc81e24f - Jean-Noël Avila <jn.avila@free.fr> 2022-09-28 21:46:22 +0200 - Jean-Noël Avila <jn.avila@free.fr> 2022-09-28 21:46:22 +0200 l10n: fr: v2.38.0 round 3
+| * | | |   08f41b8171975402657bfd9abdf2086de3edcd98 - Jiang Xin <worldhello.net@gmail.com> 2022-09-29 07:59:44 +0800 - Jiang Xin <worldhello.net@gmail.com> 2022-09-29 07:59:44 +0800 Merge branch 'catalan' of github.com:Softcatala/git-po
+| |\ \ \ \  
+| | * | | | 42fe2b951a9ae56bf750a11c0f2a290a3782236f - Jordi Mas <jmas@softcatala.org> 2022-09-28 19:05:55 +0200 - Jordi Mas <jmas@softcatala.org> 2022-09-28 19:05:55 +0200 l10n: Update Catalan translation
+| | |/ / /  
+| * / / / b796ca1cd4c996b55b3c68afd34705a30f06219b - Fangyi Zhou <me@fangyi.io> 2022-09-28 15:50:49 +0100 - Fangyi Zhou <me@fangyi.io> 2022-09-28 15:51:07 +0100 l10n: zh_CN: 2.38.0 round 3
+| |/ / /  
+| * | |   37db9416c4a097eb3d7967383b2e5d48b8705f3d - Jiang Xin <worldhello.net@gmail.com> 2022-09-28 20:54:29 +0800 - Jiang Xin <worldhello.net@gmail.com> 2022-09-28 20:54:29 +0800 Merge branch 'turkish' of github.com:bitigchi/git-po
+| |\ \ \  
+| | * | | 2c30dfa7d7c18608da41e9ff22890c13aedb49a4 - Emir SARI <emir_sari@icloud.com> 2022-09-28 12:32:13 +0300 - Emir SARI <emir_sari@icloud.com> 2022-09-28 12:32:13 +0300 l10n: tr: v2.38.0 3rd round
+| | | |/  
+| | |/|   
+| * | |   8d500614f7a9763c4e4193e8231ab600594ac5ca - Jiang Xin <worldhello.net@gmail.com> 2022-09-28 20:52:34 +0800 - Jiang Xin <worldhello.net@gmail.com> 2022-09-28 20:52:34 +0800 Merge branch 'master' of github.com:alshopov/git-po
+| |\ \ \  
+| | * | | 88fda53a1637af088d1d54e026aa7762b8f6697b - Alexander Shopov <ash@kambanaria.org> 2022-09-28 11:00:59 +0200 - Alexander Shopov <ash@kambanaria.org> 2022-09-28 11:07:07 +0200 l10n: bg.po: Updated Bulgarian translation (5484t)
+| | |/ /  
+| * / / 9af6cb88b674b140d177fede6d61811ac55f73fb - Alex Henrie <alexhenrie24@gmail.com> 2022-09-27 22:56:55 -0600 - Alex Henrie <alexhenrie24@gmail.com> 2022-09-27 22:56:55 -0600 l10n: es: update translation
+| |/ /  
+| * |   4ff58e9690fd7f06c0ae1a32480effb21ef8139e - Jiang Xin <worldhello.net@gmail.com> 2022-09-28 08:03:38 +0800 - Jiang Xin <worldhello.net@gmail.com> 2022-09-28 08:03:38 +0800 Merge branch 'main' of github.com:git/git
+| |\ \  
+| |/ /  
+|/| |   
+* | | bcd6bc478adc4951d57ec597c44b12ee74bc88fb - Junio C Hamano <gitster@pobox.com> 2022-09-27 11:25:52 -0700 - Junio C Hamano <gitster@pobox.com> 2022-09-27 11:25:52 -0700 Git 2.38-rc2
+* | | 2a7d63a2453e2c30353342a2c9385fa22a846987 - Junio C Hamano <gitster@pobox.com> 2022-09-26 21:46:51 -0700 - Junio C Hamano <gitster@pobox.com> 2022-09-26 21:46:51 -0700 Merge branch 'ds/bitmap-lookup-remove-tracing'

@@ -1,0 +1,35 @@
+# http://www.graphviz.org/content/cluster
+
+digraph alt_final {
+  
+  rankdir=LR;
+  size="8,5"
+  
+
+  inputs="REQ,RST";
+  outputs="ACK";
+  states="s0,s1";
+  
+  node [shape=doublecircle] s0;
+  
+  node [shape=circle];
+  
+  s0 [label = "\N\nACK=0"];
+  s1 [label = "\N\nACK=1"];
+  
+  
+  s0->s0 [label="~REQ|RST"]
+  
+  s0->s1 [label="REQ&~RST"]
+  
+  s1->s1 [label="REQ&~RST"]
+  
+  s1->s0[label="~REQ|RST"]
+  
+  
+  
+  
+  
+  
+    
+}

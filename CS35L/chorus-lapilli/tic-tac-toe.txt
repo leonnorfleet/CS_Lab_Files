@@ -1,0 +1,91 @@
+Create a 'Tile' component that is the skeleton for the interactive tiles in the game, which
+is able to interactively display the value I set for it
+
+Export a Board function which will contain all the elements necessary for the game
+	
+	Inside of this Board component, create 3 divs each containing 3 Tile components to
+	create a 3x3 interactive matrix
+
+Import the Board component into app.js and include the element in the skeleton of the app
+component
+
+Add a prop argument for the Tile component, so I can dynamically change the displayed value
+using functions or setting it to show the data from different data structures
+	
+	Make the text in the button element of the Tile component reflect the data passed in
+	the argument using {value} as the pre-set text
+
+Encapsulate all 3 'row' divs and then add useStates for setting the values of a length 9 array
+
+Let each tile in the 3x3 represent a value in the array, where each value in the array can
+either be null(blank), 'X' or 'O'
+
+Create an onclick function for the tiles within the Board component, let each tile pass the
+onclick function in the Board component with the onClick={() => func(x)} syntax as it's
+own onclick function, the argument is the index in the array it represents
+
+	Create a useState for determining whether it is X's turn on O's turn
+	
+	Create a useState for changing the UI to indicate which player's turn it is
+
+	Take a clone array of the one used for keeping track of the values in each
+	tile
+
+	In the onclick, check if the value of the clicked tile is null, to ensure values are
+	not overwritten also check if a winner has been determined(more on this later)
+	
+	Using the state value for turns, if it is X's turn, set the value of the array at the
+	index passed into the function as 'X', and set it to 'O' otherwise
+
+	If the value at the array was null, then the value at the array should be properly
+	changed, and then the turn will be passed to the next player at the end of the function
+
+	To store the changes made to the values of each tiles, call the setState function for
+	the array using the cloned array(the original is immutable and cannot be modified)
+
+Create a function that checks if any combination of matching tiles is equal to any of the
+winning combinations and return that tile type, or return null if no one won yet
+
+	This function can be used to stop players from messing with tiles in an if statement
+	for the tile clicking function
+
+Create a new component for the entire game, and export this instead(make changes to the files
+where the board component was imported)
+
+	Add elements for encapsulating the board containing the tiles, and keeping track of
+	the game state and the ability to start over
+
+To keep track of the game states, add another useState for the history which is also an array
+of size 9. This is because there are a maximum of 9 moves that can be made before a game ends
+in either a win or a stalelmate
+
+Use array access logic to always view the rightmost value in the history array(which is the
+newest move)
+
+	This is so that we are always live in the most current move and it works well with
+	the natural appending functions for arrays
+
+	Add arguments for the current array in the history, and move the logic that updates
+	the state of the game into the Game component to further abstract the data the Board
+	needs to have access to, then pass this function as an argument to Board
+
+	Add the functions for updating all of the gamestate states into this new function
+	we will call handlePlay
+	
+To implement the history feature, use the .map() function to create a list of li elements
+where each one is a button that calls a jumpto function(more on this later)
+
+	The jumpto function will change the current turn to the proper one if the history is
+	changed to a past board state
+
+	The past states will be accessed by counting the turns as they happen and using those
+	as keys for the mapping of game states to list elements
+
+Implement the proper behavior allowing the current values of the tiles in the 9-element array
+to be changed to reflect the history it will be changed to
+
+Add <p> tags that can dynamically reflect which player's turn it is by using a (bool ? a : b)
+boolean statement so it does someting like <p>Next Player: {(xTurn) ? 'X' : 'O'}</p>
+
+Add another <p> tag that does the same thing but changes the Next Player text between Winner
+and next player depending on if there was a winning combination

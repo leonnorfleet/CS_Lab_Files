@@ -1,0 +1,20 @@
+The first few functions were not difficult to implement. I just tried to create them with the idea of a linear scan.
+
+With computed_fixed_point was also simple because I have experience with implementing it from classes I've taken in the past but
+for computed_periodic_point it took me a while to understand its meaning in order to properly implement it.
+
+The whileseq function was nontrivial after having enough experience with OCaml list insertions from the front.
+
+With filter_blind_alleys my original idea was to "loop" through each rule and then for each symbol in the right hand side I would call
+some helper function to check if those are nonterminal or were fully "travelled". After I had that idea solidified I started creating helper
+functions for checking terminal or nonterminal and creating a list of known terminating symbols. Finally I tied it all together with
+computed_fixed_point because I knew I had to keep gathering lists of terminating symbols until two iterations were the same,
+which meant that every bad rule was thrown out correctly.
+
+self_member answer:
+
+let self_member s = ();;
+
+This is not possible to write in OCaml because this would mean the set
+simultaneously references and does not reference itself in its 
+declaration/initialization. It would also have a non-finite length.

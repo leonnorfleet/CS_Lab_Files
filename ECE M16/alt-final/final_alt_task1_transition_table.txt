@@ -1,0 +1,12 @@
+#Automatic compact state assignment: {'s0': 0, 's1': 1} using 1 bits
+# State Assignment: {'s0': 0, 's1': 1}
+REQ RST Q | ACK Qn
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  0   1              0 |   0              0
+  0   0              0 |   0              0
+  1   1              0 |   0              0
+  1   0              0 |   0              1
+  0   1              1 |   1              0
+  0   0              1 |   1              0
+  1   1              1 |   1              0
+  1   0              1 |   1              1

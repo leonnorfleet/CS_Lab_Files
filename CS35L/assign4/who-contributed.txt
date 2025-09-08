@@ -1,0 +1,3 @@
+1. I used git log -S "Even newspaper reports present contradictory information" to find the author who commited the change with the sentence. This also gave me the SHA hash, and the date which is in 1995. The output of this command also says 'Eggert changes', who I'm assuming is the maintainer of tzdb.
+
+2. After this I executed the command git show c12b432 which output all of the changes made by Arthur David Olson, who is the one that added the sentence

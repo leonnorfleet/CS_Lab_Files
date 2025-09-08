@@ -1,0 +1,45 @@
+Exercise 2.1:
+
+1. # bits expression:
+
+(defun sqr (a)
+  (* a a))
+sqr
+
+(defvar x (* (expt 2 (- 607 1)) (- (expt 2 607) 1)))
+
+a b c d
+
+(defun num-bits(n)
+  (setq a 1)
+  (setq c n)
+
+  (while (< 1 c)
+    (setq c (/ c 2))
+    (setq a (+ a 1)))
+  (print a))
+
+2. C-h k C-h k opens the help menu for the C-h k command itself, which is the command describe key. It can be invoked from the general help menu(C-h b) so they are related
+
+3. C-h k M-SPC opens the help menu for the M-SPC command which is cycle-spacing
+
+4. Using M-SPC cycles the number of spaces between text from 0 spaces, 1 space, and the original amount of spaces it had between the two
+
+5. the general function is cycle-spacing
+
+Homework:
+
+1. An index error is raised because /dev/null is an empty file. The error originates in the python ver. 2.7 random.py file. It tries to return a value in a sequence(in this case, a line in a file) but the sequence is empty because the file is empty.
+
+2. optparse was depreciated so it doesn't work in python3. Any argument using the library won't work.
+
+3. /usr/bin/python3 test:
+   	real 0m0.912s
+	user 0m0.845
+	sys 0m0.052
+
+   /usr/local/cs/bin/python3 test:
+        real 0m0.641
+	user 0m0.586
+	sys 0m0.037
+		    

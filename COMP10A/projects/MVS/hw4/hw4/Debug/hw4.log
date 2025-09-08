@@ -1,0 +1,4 @@
+﻿  hw4_2.cpp
+C:\Users\lcnor\source\repos\projects\MVS\hw4\hw4\hw4_2.cpp(28,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\lcnor\source\repos\projects\MVS\hw4\hw4\hw4_2.cpp(32,21): warning C4018: '<': signed/unsigned mismatch
+  hw4.vcxproj -> C:\Users\lcnor\source\repos\projects\MVS\hw4\Debug\hw4.exe

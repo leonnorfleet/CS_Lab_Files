@@ -1,0 +1,28 @@
+Overall, I believe I learned alot from this assignment as it helped me
+understand logical programming more than before I started.
+
+Because of how logical programming requires you to solve smaller parts
+and then unify their results, my though process in the beginning was:
+
+rows are correct -> cols are correct -> counts are correct -> combine everything
+
+For the rowchecking part, I immediately got the idea of making sure that a given row
+is a permutation of the ascending integer list from 1 to N for a row of length N.
+After that I just needed to apply this to each row and for columns a transpose before
+doing rowchecking again worked well.
+
+For the count part, I started with being able to get the count for a row looking left,
+then applied this to each row. This gives me the count for left in
+count(top, bot, left, right). Then with similar reasoning to the row/col checking, I just
+needed to transpose to do top and reverse the original and transposed matrices for
+right and bottom respectively.
+
+My code for count of a single row was basically finding the max of an array but there
+was a counter for each time a new one was found.
+
+I started out making plain_ntower first on accident because I didn't really pick up that
+I needed to use fd_domain predicates and such. So after implementing plain_ntower I went
+back and looked into fd_domain and similar functions to implement ntower. I feel like my
+code could be improved if I rowchecked and dirchecked less. It might be the main source
+of slowdown when doing ntower and plain_ntower for N = 5. But overall ntower completes
+far faster than plain_ntower.

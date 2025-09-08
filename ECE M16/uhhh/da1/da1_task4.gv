@@ -1,0 +1,59 @@
+# http://www.graphviz.org/content/cluster
+
+digraph finite_state_machine_22 {
+  
+  rankdir=LR;
+  size="8,5"
+  
+
+  inputs="gt,lt,rdy,rst";
+  outputs="sel1,sel2,done";
+  states="s0,LGB,oneLLC,twoLLC,oneMGC,twoMGC,DOUTL0,DOUTL1,DOUTM0,DOUTM1,DOUTC";
+  
+  node [shape=doublecircle] s0;
+  
+  node [shape=circle];
+  
+  s0 [label = "\N\nsel1=0,sel2=0,\ndone=0"];
+  LGB [label = "\N\nsel1=0,sel2=0,\ndone=0"];
+  oneLLC [label = "\N\nsel1=0,sel2=1,\ndone=0"];
+  twoLLC [label = "\N\nsel1=1,sel2=1,\ndone=0"];
+  DOUTL0 [label = "\N\nsel1=0,sel2=x,\ndone=1"];
+  DOUTM0 [label = "\N\nsel1=0,sel2=x,\ndone=1"];
+  DOUTL1 [label = "\N\nsel1=1,sel2=x,\ndone=1"];
+  DOUTM1 [label = "\N\nsel1=1,sel2=x,\ndone=1"];
+  DOUTC [label = "\N\nsel1=x,sel2=1,\ndone=1"];
+  oneMGC [label = "\N\nsel1=1,sel2=1,\ndone=0"];
+  twoMGC [label = "\N\nsel1=0,sel2=1,\ndone=0"];
+
+    s0->s0 [label="~rdy|rst"]
+    s0->LGB [label="rdy&~rst"]
+    LGB->oneLLC [label="gt&~rst"]
+    LGB->twoLLC [label="~gt&~rst"]
+  
+    oneLLC->DOUTL0 [label="lt&~rst"]
+    twoLLC->DOUTL1 [label="lt&~rst"]
+    
+    oneLLC->oneMGC [label="~lt&~rst"]
+    twoLLC->twoMGC [label="~lt&~rst"]
+    
+    oneMGC->DOUTM1 [label="gt&~rst"]
+    oneMGC->DOUTC [label="~gt&~rst"]
+    
+    twoMGC->DOUTM0 [label="gt&~rst"]
+    twoMGC->DOUTC [label="~gt&~rst"]
+    
+    DOUTL0->s0 [label="*"]
+    DOUTM0->s0 [label="*"]
+    DOUTL1->s0 [label="*"]
+    DOUTM1->s0 [label="*"]
+    DOUTC->s0 [label="*"]
+    
+    LGB->s0 [label = "rst"];
+    oneLLC->s0 [label = "rst"];
+    twoLLC->s0 [label = "rst"];
+    oneMGC->s0 [label = "rst"];
+    twoMGC->s0 [label = "rst"];
+
+    
+}

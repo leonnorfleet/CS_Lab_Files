@@ -1,0 +1,48 @@
+# http://www.graphviz.org/content/cluster
+
+digraph finite_state_machine_1 {
+  
+  rankdir=LR;
+  size="8,5"
+  
+
+  inputs="x";
+  outputs="z";
+  states="s0,rem_0,rem_1,rem_2,rem_3,rem_4,rem_5,rem_6";
+  
+  node [shape=doublecircle] s0;
+  
+  node [shape=circle];
+    
+    s0 [label = "\N\nz=0"]
+    rem_0 [label = "\N\nz=1"]
+	rem_1 [label = "\N\nz=0"]
+	rem_2 [label = "\N\nz=0"]
+	rem_3 [label = "\N\nz=0"]
+	rem_4 [label = "\N\nz=0"]
+	rem_5 [label = "\N\nz=0"]
+	rem_6 [label = "\N\nz=0"]
+	
+	s0->rem_0 [label="~x"]
+	rem_0->rem_0 [label="~x"]
+	
+	rem_0->rem_1 [label="x"]
+	
+	s0->rem_1 [label="x"]
+	rem_1->rem_2 [label="~x"]
+	rem_1->rem_3 [label="x"]
+	
+	rem_2->rem_4 [label="~x"]
+	rem_2->rem_5 [label="x"]
+	rem_3->rem_6 [label="~x"]
+	
+	rem_3->rem_0 [label="x"]
+	rem_4->rem_1 [label="~x"]
+	rem_4->rem_2 [label="x"]
+	rem_5->rem_3 [label="~x"]
+	rem_5->rem_4 [label="x"]
+	rem_6->rem_5 [label="~x"]
+	rem_6->rem_6 [label="x"]
+  
+  
+}

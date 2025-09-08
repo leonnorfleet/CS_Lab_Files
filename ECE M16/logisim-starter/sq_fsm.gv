@@ -1,0 +1,38 @@
+# http://www.graphviz.org/content/cluster
+
+digraph finite_state_machine_22 {
+  
+  rankdir=LR;
+  size="8,5"
+  
+
+  inputs="eq,rdy,gt";
+  outputs="found";
+  states="s0,loop,finloop";
+  
+  node [shape=doublecircle] s0;
+  
+  node [shape=circle];
+  
+  s0 [label = "\N\nfound=0"];
+  loop [label = "\N\nfound=0"];
+  finloop [label = "\N\nfound=1"];
+  
+  
+  s0->s0 [label="~rdy"]
+  
+  s0->loop [label="rdy"]
+  
+  loop->loop [label="~gt&~eq"]
+  
+  loop->finloop [label="gt|eq"]
+  
+  finloop->s0[label="*"]
+  
+  
+  
+  
+  
+  
+    
+}

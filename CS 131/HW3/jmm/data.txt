@@ -1,0 +1,39 @@
+Threads: 8, State Array Entries: 5, Swaps: 1000000
+Synchronized: 0.0699934 s test duration, 559.947 ns average swap time
+Unsynchronized: 0.158055 s test duration, 1264.44 ns average swap time, sum mismatch (-331 != 0)
+AcmeSafe: 0.0639082 s test duration, 511.265 ns average swap time
+
+Threads: 40, State Array Entries: 5, Swaps: 1000000
+Synchronized: 0.137191 s test duration, 5487.66 ns average swap time
+Unsynchronized: 0.0972058 s test duration, 3888.23 ns average swap time, sum mismatch (667 != 0)
+AcmeSafe: 0.0956727 s test duration, 3826.91 ns average swap time
+
+Threads: 8, State Array Entries: 100, Swaps: 1000000
+Synchronized: 0.0830212 s test duration, 664.169 ns average swap time
+Unsynchronized: 0.146876 s test duration, 1175.01 ns average swap time, sum mismatch (-497 != 0)
+AcmeSafe: 0.0789365 s test duration, 631.492 ns average swap time
+
+Threads: 40, State Array Entries: 100, Swaps: 1000000
+Synchronized: 0.115136 s test duration, 4605.44 ns average swap time
+Unsynchronized: 0.111050 s test duration, 4441.98 ns average swap time, sum mismatch (-788 != 0)
+AcmeSafe: 0.0905284 s test duration, 3621.13 ns average swap time
+-----------------------------------------------------------------------------
+Threads: 8, State Array Entries: 5, Swaps: 100000000
+Synchronized: 3.65649 s test duration, 292.519 ns average swap time
+Unsynchronized: 2.56098 s test duration, 204.878 ns average swap time, sum mismatch (-15221 != 0)
+AcmeSafe: 3.74426 s test duration, 299.541 ns average swap time
+
+Threads: 40, State Array Entries: 5, Swaps: 100000000
+Synchronized: 3.41730 s test duration, 1747.00 ns average swap time
+Unsynchronized: 2.49127 s test duration, 996.506 ns average swap time, sum mismatch (-34449 != 0)
+AcmeSafe: 3.70021 s test duration, 1480.08 ns average swap time
+
+Threads: 8, State Array Entries: 100, Swaps: 100000000
+Synchronized: 3.41730 s test duration, 273.384 ns average swap time
+Unsynchronized: 3.59767 s test duration, 287.813 ns average swap time, sum mismatch (-31545 != 0)
+AcmeSafe: 3.77577 s test duration, 302.061 ns average swap time
+
+Threads: 40, State Array Entries: 100, Swaps: 100000000
+Synchronized: 4.07273 s test duration, 1629.09 ns average swap time
+Unsynchronized: 3.60357 s test duration, 1441.43 ns average swap time, sum mismatch (-19324 != 0)
+AcmeSafe: 3.73722 s test duration, 1494.89 ns average swap time

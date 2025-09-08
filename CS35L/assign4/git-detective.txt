@@ -1,0 +1,9 @@
+I used the command git log --grep="git merge-tree" --oneline to see all commits that were made related to merge-tree. Then there were two commits that stood out to me:
+
+bcf22f29df Merge branch 'js/merge-ort-in-read-only-repo' into maint-2.38
+
+19118cb857 Merge branch 'js/merge-ort-in-read-only-repo'
+
+After this I executed git log --oneline --name-status for each commit hash. By searching for 'read-only' I found that changes were made on merge-ort on the file merge-ort.c that matched the specifications of the assignment(read-only and seg fault) and saw the changes were made on a .c file
+
+Finally, git format-patch -1 0b55d930a6 gave me a patch file for the changes on the file

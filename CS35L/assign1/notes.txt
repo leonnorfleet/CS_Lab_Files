@@ -1,0 +1,31 @@
+1. sh, sleep, and type are located in /usr/bin
+
+2. the command I used was ls /usr/bin | grep -E ^\(se\).$ then I got: sed(transform text), seq(print a sequence of numbers)
+
+3. the file /usr/local/cs/bin/emacs is executed
+
+4. version is 8.5.0 for /usr/bin/gcc, version is 13.2.0 for plain gcc. They are different programs because one is used by the SEASNet server and the other is a program file that is stored seperately
+
+5. u+sx means give the user execute permission for the file and also execute the file with the permisison id of the owner of the file(usually root), o-w means other users not in the file group lose write permissions
+
+6. the command I used was find /usr/local/cs -type d -anewer /usr/local/cs/lib -maxdepth 1 | sort | head -n 5 and the files are:
+   /usr/local/cs
+   /usr/local/cs/autoconf-2.71
+   /usr/local/cs/automake-1.16.5
+   /usr/local/cs/bash-5.2.15
+   /usr/local/cs/bin
+   
+7. the command I used was find /usr/local/cs/src/python/Python-* -maxdepth 1 -type f | wc -l and there were 15 files
+
+8. the command I used was find /usr/local/cs/bin -maxdepth 1 -type l | wc -l and there were 365 files
+
+9. the command I used was find /usr/lib64 -maxdepth 1 -printf '%T+ %p\n' | sort | head -n 1 and the file is libbz2.so
+
+10. 7 commands with from M-x: transpose-chars,  transpose-lines,  transpose-paragraphs, transpose-regions, transpose-sentences,  transpose-sexps, transpose-word
+    I found these by letting emacs auto-fill M-x transpose-
+
+11. yanking is the equivalent to pasting, can be invoked with C-y (found using C-h r)
+
+12. the command I used was ps -efjlT | less | grepclasslno
+    ancestor: root
+    descendant: bash, emacs, /usr/bin/pulseaudio, /usr/lib/systemd/systemd, /usr/bin/dbus-daemon, grep

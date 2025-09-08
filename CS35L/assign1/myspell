@@ -1,0 +1,18 @@
+#!/bin/sh
+
+sort ./linux.words > my.words
+
+lines=$(cat - | sort -u | comm -23 - ./my.words)
+
+errors=
+
+for word in $lines
+do
+  errors+="$word\n"  
+done
+
+errors=$(echo -e "$errors" | tr -cs 'A-Za-z' '[\n*]' | sort -u | comm -23 - ./my.words | tail -n +2)
+
+cat < ./linux.words | tr -cs 'A-Za-z' '[\n*]'  | sort -u | tail -n +2 > my.words
+
+echo "$errors" | comm -23 - ./my.words

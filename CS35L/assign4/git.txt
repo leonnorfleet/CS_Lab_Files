@@ -1,0 +1,3 @@
+I used the command git branch -a to see all the branches from the two different versions of the repository.
+
+The difference is that the remote repository has an extra branch jch

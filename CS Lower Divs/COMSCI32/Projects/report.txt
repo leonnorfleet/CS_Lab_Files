@@ -1,0 +1,258 @@
+Design of Implementation
+I chose to do a basic doubly linked list with only a head node, no dummy or tail nodes.
+The reason for this is because I started out having trouble understanding the concept
+of linked lists, but by the time I had a better understanding I was already halfway
+done with the function implementations. The nodes themselves have next, prev, fname,
+lname and value, the basic information required of them.
+-----------------------------------------------------------------------------------------------
+Notable Obstacles
+One of the obstacles I overcame was the inviteGuest function. While adding a node to a
+linked list is supposed to be the most trivial aspect of it, as mentioned before, I was
+having difficulty fully understanding each aspect of linked lists. It wasn't until I 
+reviewed my notes and reviewed multiple discussion sections that I was able to overcome
+this obstacle. And it really came down to my implementation of both the searching
+algorithm and my algorithm for node insertion. I originally went off the lecture slides
+which were very raw and didnt go in depth, which caused my code to be really inefficient
+and twice as long line-wise. I initially opted for using while loops to search and do
+node insertion while in the loop, but over the course of the time alotted to complete
+the assignment, I realized I had to create a better way. Then I learned about using a
+for loop instead and inserting after that, which instantly solved my problem.
+-----------------------------------------------------------------------------------------------
+Non trivial algorithms:
+
+(shorthand: last name = lName, first name = fName, value = v)
+
+inviteGuest() {
+	if head is null, insert a new node at the front with the parameters, return true
+
+	if the full name in the parameters already exists, return false
+
+	check if the lName parameter is higher up lexographically than head. If yes, insert
+	in front and return true. If no, keep going through the function
+
+	increment to the last item in the list. if the lName in the parameters is lower
+	lexographically, insert it below the current lowest value and return true. If not,
+	then keep going throught the function
+
+	use a node for loop to go through the linked list until the lName parameter is 
+	higher up lexographically than another name, or placed at second to last position.
+	This only works if it does not have a last name already in the list
+
+	if the lName parameter shares its value with a lName already in the list: check if
+	it should be put at the front of the group with shared lNames, in the middle, or the bottom
+	using the algorithms mentioned above but based on fName now
+	
+	function is guaranteed to go down one of these paths
+}
+
+alterGuest() {
+	make a node. point it to head, go through the list until you find a full name with the same
+	one as the parameters. If you do, change the value variable that that node has and return true.
+	If you don't, return false
+}
+
+inviteOrAlter() {
+	if(alterGuest()) {
+		return true;
+	}
+	else if(inviteGuest()) {
+		return false;
+	}
+}
+
+crossGuestOff() {
+	if there is only 1 node in this list, delete head using the normal delete algorithm, return true. 
+	if the top value is the one to be deleted, use the normal delete algorithm on head, return true.
+	use a while loop searching algorithm to see if the full name parameters match a node with those
+	full name values. if yes, delete algorithm, if no through the whole list, return false
+}
+
+invitedToTheWedding() {
+	use a while loop search algorithm to see if the full name parameters match those of a node in the
+	list. if yes return true. if no return false
+}
+
+matchInvitedGuest() {
+	use a while loop search algorithm to see if the full name parameters match those of a node in the
+	list. if yes, make the value of the value parameter equal to the value in that specified node. if no
+	return false
+}
+
+verifyGuestOnTheList() {
+	if the list is empty, return false
+
+	use a while loop search algorithm that loops the number of elements in the node times. if the loop 
+	number reaches the number of the i parameter, copy the values from the linked list into the parameters
+	and return true. if it doesnt return false
+}
+
+swapWeddingGuests() {
+	check for aliasing(if(&other == this)
+
+	if other is empty, fill it with the values of this using a for loop with verifyGuest and inviteGuest,
+	then delete every item in this with a for loop with verifyGuest and crossGuestOff and return
+
+	if this is empty then do the opposite of the above explanation and return
+
+	make both lists have the same value by increasing the size of the smaller one to the size of the larger
+	one. then switch the values in both using a while loop and temp variables
+	
+	then, delete excess nodes, if any, in both lists
+}
+
+joinGuests() {
+	check for aliasing(((&odOne == &odTwo && &odTwo == &odJoined) || (&odTwo == &odOne && &odOne == &odJoined))),
+	then return true
+
+	if odOne == odJoined, then remove incorrect dupes from odOne then add all unique values from odTwo. by using
+	the verifyGuest and crossGuestOff algorithm i used for earlier functions. if there were any incorrect dupes
+	then a bool variable declared earlier in the function will be set as false and returned. if there were no
+	incorrect dupes then the bool variable will be set to true and returned
+
+	same thing with odTwo but odTwo
+
+	if none of the things above occur, then empty out odJoined using the verifyGuest and crossGuestOff deletion
+	algorithm i made. after that add all unique values from odOne by using a double for loop and verifyGuest to
+	compare each individual node value into odJoined. same with odTwo. if there were any incorrect dupes then the
+	function will return false because of the bool variable mentioned above. otherwise it will return true
+}
+
+attestGuests() {
+	check for aliasing(if(&odOne == &odResult)) and return if true
+
+	wipe odResult using the deletion algorithm mentioned in other functions. then use a for loop to inviteGuest
+	all the values/nodes in odOne with verifyGuest
+}
+
+drop() {
+	for loop from 0 to guestCount. use verifyGuest to fill 3 variables declared in the loop(f, l, v) and then
+	cout them. it prints out every value in a linked list
+}
+-----------------------------------------------------------------------------------------------
+test cases:
+
+1.	//testing constructor, copy constructor, assignment operator, and consecutive assignment
+	WeddingGuest test1;
+	test1.inviteGuest("A", "B", "10");
+	test1.inviteGuest("C", "P", "22");
+	WeddingGuest test2(test1);
+	assert(test2.guestCount() == 2);
+	WeddingGuest test3;
+	test3.inviteGuest("fake", "name", "0");
+	WeddingGuest test4;
+	test1 = test3 = test2 = test4;
+	assert(test1.guestCount() == 0 && test2.guestCount() == 0 && test3.guestCount() == 0 && test4.guestCount() == 0);
+
+2.	//testing inviteGuest duplicate protection and guestCount
+	WeddingGuest test1;
+	test1.inviteGuest("A", "B", "10");
+	test1.inviteGuest("C", "P", "22");
+	test1.inviteGuest("A", "B", "10");
+	test1.inviteGuest("C", "P", "22");
+	test1.inviteGuest("A", "B", "10");
+	test1.inviteGuest("l", "r", "5");
+	WeddingGuest test3;
+	test3.inviteGuest("fake", "name", "0");
+	assert(test1.guestCount() == 3 && test3.guestCount() == 1);
+
+3.	//testing noGuests
+	WeddingGuest test1;
+	WeddingGuest test2;
+	test2.inviteGuest("Michael", "Jackson", "5");
+	assert(test1.noGuests() == true && test2.noGuests() == false);
+
+4.	//testing verifyGuestOnTheList and alterGuest
+	WeddingGuest test1;
+	test1.inviteGuest("Leon", "N", "17");
+	string f, l;
+	GuestType v;
+	test1.verifyGuestOnTheList(0, f, l, v);
+	test1.alterGuest(f, l, "18");
+	test1.verifyGuestOnTheList(0, f, l, v);
+	assert(f == "Leon" && l == "N" && v == "18");
+
+5.	//testing crossGuestOff and inviteOrAlter
+	WeddingGuest test1;
+	test1.inviteGuest("Leon", "N", "17");
+	test1.inviteOrAlter("Leon", "N", "20");
+	test1.inviteOrAlter("Leeeeon", "N", "1");
+	test1.inviteOrAlter("UCLA", "Professor", "999");
+	assert(test1.guestCount() == 3);
+	test1.crossGuestOff("Not", "ExistingName");
+	test1.crossGuestOff("Leeeeon", "N");
+	assert(test1.guestCount() == 2);
+
+6.	//testing invitedToTheWedding and matchInvitedGuest
+	WeddingGuest test1;
+	assert(test1.invitedToTheWedding("Random", "Stranger") == false);
+	test1.inviteGuest("UCLA", "Student", "1");
+	assert(test1.invitedToTheWedding("UCLA", "Student") == true);
+	GuestType v = "dummy";
+	test1.matchInvitedGuest("Random", "Stranger", v);
+	assert(v == "dummy");
+	test1.matchInvitedGuest("UCLA", "Student", v);
+	assert(v == "1");
+
+7.	//testing verifyGuestOnTheList
+	WeddingGuest test1;
+	string f[4] = { "A", "B", "C", "D" };
+	string l[4] = { "M", "N", "O", "P" };
+	GuestType v[4] = { "1", "2", "3", "4" };
+	for (int i = 0; i < 4; i++) {
+		test1.inviteGuest(f[i], l[i], v[i]);
+	}
+	for (int i = 0; i < test1.guestCount(); i++) {
+		string c1 = f[i];
+		string c2 = l[i];
+		string c3 = v[i];
+		string f, l;
+		GuestType v;
+		test1.verifyGuestOnTheList(i, f, l, v);
+		assert(c1 == f && c2 == l && c3 == v);
+	}
+
+8.	//testing swapWeddingGuests
+	WeddingGuest test1;
+	WeddingGuest test2;
+	test1.swapWeddingGuests(test2);
+	assert(test1.guestCount() == 0 && test2.guestCount() == 0);
+	test2.inviteGuest("Test", "Val", "5");
+	test1.inviteGuest("Testing", "Value", "8");
+	test2.swapWeddingGuests(test1);
+	string f1, l1, f2, l2;
+	GuestType v1, v2;
+	test1.verifyGuestOnTheList(0, f1, l1, v1);
+	test2.verifyGuestOnTheList(0, f2, l2, v2);
+	assert(f1 == "Test", l1 == "Val", v1 == "5");
+	assert(f2 == "Testing", l2 == "Value", v2 == "8");
+
+9.	//testing joinGuests
+	WeddingGuest test1;
+	WeddingGuest test2;
+	WeddingGuest test3;
+	test1.inviteGuest("LeBron", "James", "23");
+	test1.inviteGuest("Malik", "Monk", "11");
+	test1.inviteGuest("Anthony", "Davis", "3");
+	test2.inviteGuest("LeBron", "James", "23");
+	test2.inviteGuest("Russel", "Westbrook", "0");
+	joinGuests(test1, test2, test3);
+	assert(test3.guestCount() == 4);
+	joinGuests(test1, test1, test1);
+	assert(test1.guestCount() == 3);
+	joinGuests(test1, test1, test2);
+	assert(test2.guestCount() == 3);
+	joinGuests(test1, test2, test2);
+	assert(test2.guestCount() == 3);
+
+10.	/testing attestGuests
+	WeddingGuest test1;
+	WeddingGuest result;
+	test1.inviteGuest("LeBron", "James", "23");
+	test1.inviteGuest("Malik", "Monk", "11");
+	test1.inviteGuest("Anthony", "Davis", "3");
+	attestGuests("*", "*", test1, test1);
+	assert(test1.guestCount() == 3);
+	attestGuests("Not", "Here", test1, test1);
+	assert(test1.guestCount() == 0);
+	attestGuests("*", "*", result, result);
+	assert(result.guestCount() == 0);

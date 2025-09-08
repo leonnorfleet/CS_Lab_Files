@@ -1,0 +1,24 @@
+#!/usr/local/cs/bin/python3
+import sys, subprocess
+
+lines = sys.stdin.readlines()
+
+f = open('temp', 'w')
+
+for l in lines:
+    f.write(l)
+
+f.close()
+
+process = subprocess.run('grep ^CommitDate: temp | sed \'s/.*\\([+-][0-9]\\{4\\}\\)$/\\1/\' | sort -n | uniq -c',
+                         shell=True, check=True, stdout=subprocess.PIPE, text=True)
+
+res = process.stdout
+
+for tz in res.splitlines():
+    l = tz.split(' ')
+    l = [x for x in l if x != '']
+    l.reverse()
+    sys.stdout.write(' '.join(l) + '\n')
+
+subprocess.run('rm temp', shell=True, check=True, text=True)

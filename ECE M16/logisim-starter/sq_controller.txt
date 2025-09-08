@@ -1,0 +1,11 @@
+#Automatic compact state assignment: {'s0': 0, 'loop': 1, 'finloop': 2} using 2 bits
+# State Assignment: {'s0': 0, 'loop': 1, 'finloop': 2}
+eq rdy gt curstate[1..0] | found nxtstate[1..0]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ -   0  -             00 |     0             00
+ -   1  -             00 |     0             01
+ 0   -  0             01 |     0             01
+ 1   -  1             01 |     0             10
+ 1   -  0             01 |     0             10
+ 0   -  1             01 |     0             10
+ -   -  -             10 |     1             00

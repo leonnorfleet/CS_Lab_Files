@@ -1,0 +1,50 @@
+I wrote make_parser in terms of make_matcher structurally mainly because I was 
+following the order of the assignment tasks. After getting ideas from 
+discussion section and getting ideas by drawing out trees to parse as examples 
+I implemented make_matcher as it is now and repurposed/adapted the code for 
+make_parser as well.
+
+I got the idea of using make_matcher to avoid needing to duplicate the depth 
+first search code but in the end I couldn't figure out a good way to take 
+the results of make_matcher and use it in the logic for building the parse 
+tree with the amount of time I had left. So instead I added the 
+parse tree building code to the matching portions where it would achieve 
+the correct effect.
+
+Something that is obvious from the implemented depth first search code is 
+that there is no logic added for infinite loop detection. Since there was 
+never a parameter added to see what the previous symbol that the 
+algorithm dived deeper into was, there is no way to stop something like
+
+(Using the types from the hw2 page):
+
+(Expr, 
+
+[N Val; N Term; N Expr]; 
+
+Val [N Term]; 
+
+Term, [N Val])
+
+Or in the new grammar style:
+
+(Expr,
+    | Expr -> [N Val; N Term; N Expr]
+    
+    | Val -> [N Term]
+    
+    | N Term -> [N Val])
+
+Which would first go into the Val nonterminal, then go into the Term 
+nonterminal, back into Val, and loop infinitely unless its stopped 
+manually.
+
+Actually, after testing this grammar again, it loops even if I remove 
+N Val and N Term from the starting symbol Expr's rule because it will 
+loop back into itself anyways. This means that the primary weakness 
+of my implementation is that there is no loop detection / loop 
+prevention.
+
+I also noticed that the parsing and matching code can handle very 
+long trees with leaves several nodes away from the original 
+node.

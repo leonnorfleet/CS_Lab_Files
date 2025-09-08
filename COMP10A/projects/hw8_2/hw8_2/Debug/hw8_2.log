@@ -1,0 +1,7 @@
+﻿  hw8_2.cpp
+C:\Users\lcnor\source\repos\projects\hw8_2\hw8_2\hw8_2.cpp(18,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\lcnor\source\repos\projects\hw8_2\hw8_2\hw8_2.cpp(22,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\lcnor\source\repos\projects\hw8_2\hw8_2\hw8_2.cpp(85,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\lcnor\source\repos\projects\hw8_2\hw8_2\hw8_2.cpp(98): message : see reference to function template instantiation 'void printVector<int>(const std::vector<int,std::allocator<int>> &)' being compiled
+C:\Users\lcnor\source\repos\projects\hw8_2\hw8_2\hw8_2.cpp(87,15): warning C4018: '<': signed/unsigned mismatch
+  hw8_2.vcxproj -> C:\Users\lcnor\source\repos\projects\hw8_2\Debug\hw8_2.exe

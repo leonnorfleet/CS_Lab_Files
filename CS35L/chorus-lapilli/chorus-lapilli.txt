@@ -1,0 +1,87 @@
+Create a 'Tile' component that is the skeleton for the interactive tiles in the game, which
+is able to interactively display the value I set for it
+
+Export a Board function which will contain all the elements necessary for the game
+	
+	Inside of this Board component, create 3 divs each containing 3 Tile components to
+	create a 3x3 interactive matrix
+
+Import the Board component into app.js and include the element in the skeleton of the app
+component
+
+Add a prop argument for the Tile component, so I can dynamically change the displayed value
+using functions or setting it to show the data from different data structures
+	
+	Make the text in the button element of the Tile component reflect the data passed in
+	the argument using {value} as the pre-set text
+
+Encapsulate all 3 'row' divs and then add useStates for setting the values of a length 9 array
+
+Let each tile in the 3x3 represent a value in the array, where each value in the array can
+either be null(blank), 'X' or 'O'
+
+Create an onclick function for the tiles within the Board component, let each tile pass the
+onclick function in the Board component with the onClick={() => func(x)} syntax as it's
+own onclick function, the argument is the index in the array it represents
+
+	Create a useState for determining whether it is X's turn on O's turn
+	
+	Create a useState for changing the UI to indicate which player's turn it is
+
+	Take a clone array of the one used for keeping track of the values in each
+	tile
+
+	In the onclick, check if the value of the clicked tile is null, to ensure values are
+	not overwritten also check if a winner has been determined(more on this later)
+	
+	Using the state value for turns, if it is X's turn, set the value of the array at the
+	index passed into the function as 'X', and set it to 'O' otherwise
+
+	If the value at the array was null, then the value at the array should be properly
+	changed, and then the turn will be passed to the next player at the end of the function
+
+	To store the changes made to the values of each tiles, call the setState function for
+	the array using the cloned array(the original is immutable and cannot be modified)
+
+Create a function that checks if any combination of matching tiles is equal to any of the
+winning combinations and return that tile type, or return null if no one won yet
+
+	This function can be used to stop players from messing with tiles in an if statement
+	for the tile clicking function
+
+Add state variables for keeping track of the number of turns, if a player has to remove a
+piece from the board, and the last tile a piece was removed from
+
+	With the number of turns state, use it to trigger the remove a piece state so that
+	the if statement for placing tiles activates a different behavior when the number
+	of turns reaches 5
+
+	When the player removes a piece from the board, their turn is not over because a
+	different path in the click behavior logic was taken
+
+	It will remain their turn until they click one of the pieces that is theirs(this can
+	be checked using the index passed in, just return if they click on a empty spot or
+	a piece that is not theirs
+
+	Once they click their piece, that tile's value is set to null(it is now blank) and the
+	index of the tile they removed is stored
+
+	This is so that they cannot just put the piece back in the position they removed it
+	from, as that is cheating and can be used to stall infinitely
+
+	If a winning combination is found, the player is locked out of the click function
+	alltogether, so no new logic needs to be added there
+
+	Add a button that calls a function called clearBoard, which sets all of the states
+	that track the game's information back to default settings, effectively resetting the
+	board
+
+Add <p> tags that have boolean statements like (bool) ? a : b to dynamically change the game
+UI
+
+	By using the function that checks for a winner, the state variable that indicates the
+	current player's turn, the variable that indicates if a plpayer has to remove a piece
+	and the variable that keeps track of turns, a simple player UI can be made
+
+Use your OP(garbage) css skills to put the game and the clear board button next to each other,
+as well as placing the turn count and UI for player turn and action in nice spots
