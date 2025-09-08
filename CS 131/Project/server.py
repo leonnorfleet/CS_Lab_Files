@@ -6,7 +6,7 @@ import re
 import sys
 import time
 
-API_KEY = 'AIzaSyCrY9FS_WGxkU9YGL_Hm84ppd-VzAjrRQM'
+API_KEY = ''
 REQUEST_URL = 'https://places.googleapis.com/v1/places:searchNearby?key=' + API_KEY
 HOP_COUNT = 2
 
